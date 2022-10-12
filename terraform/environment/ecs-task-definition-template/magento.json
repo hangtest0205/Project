@@ -1,0 +1,19 @@
+[
+  {
+    "name": "nginx",
+    "image": "nginx:latest",
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      }
+    ],
+    "dockerLabels": 
+      {
+        "traefik.http.routers.nginx.rule": "Host(`${nlb_endpoint}`) && (Path(`/reset/V1`) || PathPrefix(`/rest/v1`) || Path(`/graphql`))",
+        "traefik.enable": "true"
+      }
+    
+  }
+]
