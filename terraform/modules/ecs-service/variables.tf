@@ -14,5 +14,4 @@ variable ecs_service_subnets_id {}
 variable ecs_service_security_groups {}
 variable ecs_service_assign_public_ip { default = false }
 variable ecs_service_target_group_arn { default = null }
-variable ecs_service_container_name {default = null}
-variable ecs_service_container_port {default = null}
+

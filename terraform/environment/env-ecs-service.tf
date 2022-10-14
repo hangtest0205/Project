@@ -59,14 +59,23 @@ module ecs_service_traefik {
   ecs_service_task_definition_arn   = module.traefik_task_definition.ecs_task_definition_arn
   ecs_service_launch_type           = "FARGATE"
   ecs_service_desired_count         = 1
-  ecs_service_subnets_id            = module.network.subnet_private_id
+  ecs_service_subnets_id            = module.network.subnet_public_id
   ecs_service_security_groups       = module.sg_traefik_ecs.sg_id
   ecs_service_assign_public_ip      = true
-  ecs_service_target_group_arn      = module.nlb_target_group_traefik.nlb_target_group_arn
-  ecs_service_container_name        = "traefik"
-  ecs_service_container_port        = 80
-  
+  ecs_service_target_group_arn      = [
+    {
+      target_group_arn = module.nlb_target_group_traefik.nlb_target_group_arn
+      container_name = "traefik"
+      container_port = 80
+    },
+    {
+      target_group_arn = module.nlb_target_group_traefik_magento.nlb_target_group_arn
+      container_name = "traefik"
+      container_port = 8080
+    }
+  ]
 }
+
 
 # Create ECS service magento
 module ecs_service_magento {
@@ -82,10 +91,7 @@ module ecs_service_magento {
   ecs_service_task_definition_arn   = module.magento_task_definition.ecs_task_definition_arn
   ecs_service_name                  = "magento"
   ecs_service_desired_count         = 1
-  ecs_service_subnets_id            = module.network.subnet_private_id
+  ecs_service_subnets_id            = module.network.subnet_public_id
   ecs_service_security_groups       = module.sg_ecs_magento.sg_id
   ecs_service_assign_public_ip      = true
 }
-
-
-

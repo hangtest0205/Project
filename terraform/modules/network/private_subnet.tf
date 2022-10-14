@@ -11,13 +11,9 @@ resource "aws_subnet" "subnet_private" {
   }
 }
 
-resource "aws_default_route_table" "route_private" {
-  default_route_table_id = aws_vpc.vpc.default_route_table_id
-
-  route {
-    cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat_gateway.id
-  }
+resource "aws_route_table" "route_private" {
+  vpc_id = aws_vpc.vpc.id
+  route = []
 
   tags = {
     Name  = "${var.project}-route-private-${var.env}"
@@ -28,5 +24,11 @@ resource "aws_default_route_table" "route_private" {
 resource "aws_route_table_association" "private" {
   count          = length(aws_subnet.subnet_private)
   subnet_id      = aws_subnet.subnet_private.*.id[count.index]
-  route_table_id = aws_default_route_table.route_private.id
+  route_table_id = aws_route_table.route_private.id
 }
+
+# resource "aws_main_route_table_association" "private_table" {
+#   vpc_id         = aws_vpc.vpc.id
+#   route_table_id = aws_route_table.route_private.id
+# }
+

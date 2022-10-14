@@ -14,11 +14,11 @@ resource "aws_ecs_service" "ecs_service" {
   }
 
   dynamic load_balancer {
-    for_each = var.ecs_service_target_group_arn != null ? [1] : []
+    for_each = var.ecs_service_target_group_arn != null ? var.ecs_service_target_group_arn : []
     content {
-      target_group_arn = var.ecs_service_target_group_arn
-      container_name   = var.ecs_service_container_name
-      container_port   = var.ecs_service_container_port
+      target_group_arn = load_balancer.value.target_group_arn
+      container_name   = load_balancer.value.container_name
+      container_port   = load_balancer.value.container_port
     }
   }
 

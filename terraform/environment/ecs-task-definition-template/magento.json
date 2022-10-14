@@ -11,7 +11,7 @@
     ],
     "dockerLabels": 
       {
-        "traefik.http.routers.nginx.rule": "Host(`${nlb_endpoint}`) && (Path(`/reset/V1`) || PathPrefix(`/rest/v1`) || Path(`/graphql`))",
+        "traefik.http.routers.nginx.rule": "Host(`${nlb_endpoint}`)",
         "traefik.enable": "true"
       }
     

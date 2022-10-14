@@ -32,7 +32,7 @@ resource "aws_api_gateway_integration" "apigw_integration" {
   integration_http_method = "ANY"
   connection_type         = "VPC_LINK"
   connection_id           = var.connection_id
-  uri                     = "http://test.magento2test.hn.smartosc.com/{proxy+}"
+  uri                     = var.uri
 
 }
 

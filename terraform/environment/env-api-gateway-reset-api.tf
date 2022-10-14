@@ -18,6 +18,7 @@ module api_gateway {
   #API Gateway 
   # uri = module.nlb_listener_traefik.nlb_listener_arn
   connection_id = module.api_gateway_vpc_link.vpclink_apigw_to_nlb_id
+  uri           = module.nlb.nlb_arn
 }
 
 

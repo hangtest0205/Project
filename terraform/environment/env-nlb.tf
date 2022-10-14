@@ -5,7 +5,7 @@ module nlb {
   project = var.project
 
   nlb_name               = "nlb-internal"
-  private_subnets_ids    = module.network.subnet_private_id
+  public_subnets_ids   = module.network.subnet_public_id
   nlb_type               = "nlb"
 }
 
