@@ -1,10 +1,13 @@
+branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+
+
 pipeline {
     agent any
 
     stages {
         stage('Build - Deploy') {
             steps {
-                sh 'git rev-parse HEAD'
+                sh 'echo BRANCH_NAME ${branch} '
 
             }
         }
