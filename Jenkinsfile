@@ -1,4 +1,4 @@
-branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
 
 
 pipeline {
@@ -7,7 +7,8 @@ pipeline {
     stages {
         stage('Build - Deploy') {
             steps {
-                sh 'echo Branch deployment is $branch '
+                echo 'Pulling...' + env.BRANCH_NAME
+                checkout scm
 
             }
         }
