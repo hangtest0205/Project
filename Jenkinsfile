@@ -1,3 +1,6 @@
+repo = 'https://github.com/hangtest0205/Project.git'
+branch = 'main'
+
 pipeline {
     agent any
     stages {
