@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build - Deploy') {
             steps {
-                echo 'Pulling...' + env.BRANCH_NAME
+                echo 'Pulling...' + env.Branch_Name
                 checkout scm
 
             }
