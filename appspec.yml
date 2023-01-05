@@ -1,1 +1,11 @@
-
+- name: Build and Deploy On ENV STG
+  hosts: ubuntu
+    #become_method: sudo
+  gather_facts: yes
+  remote_user: ubuntu
+  tasks:
+      - name: Build-Deploy
+        shell: |
+            /home/ubuntu/deploy/deploy.sh
+        register: command_output
+      - debug: var=command_output.stdout_lines
