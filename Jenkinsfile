@@ -1,6 +1,4 @@
-branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-
-
+branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 pipeline {
     agent any
 
