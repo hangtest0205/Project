@@ -1,16 +1,19 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build - Deploy') {
+        stage("GitSCM") {
             steps {
-                sh 'echo BRANCH_NAME ${GIT_BRANCH_NAME}'
-
+                checkout([$class: 'GitSCM',
+                          userRemoteConfigs: [[url: repo]],
+                          branches: [[name: branch]],
+                         ])
             }
         }
-
-
+        
+        stage("shorthand") {
+            steps {
+                git url: repo, branch: branch
+            }
+        }
     }
-
-
 }
