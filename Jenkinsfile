@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo 'Branch deployment is : ' + git_branch
                 echo 'Checkout Branch'
-                if (git_branch = "origin/master") {
+                if (git_branch == "origin/master") {
                    sh 'ansible-playbook -i inventory/hosts appspec.yml -vvv'
 
                 } else {
