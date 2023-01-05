@@ -7,6 +7,7 @@ pipeline {
             steps {
                 echo 'Branch deployment is : ' + git_branch
                 echo 'Checkout Branch'
+            }
          
                 
 
