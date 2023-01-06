@@ -1,4 +1,18 @@
-git_branch = env.Branch_Name
+properties([
+  parameters([
+    string(
+        defaultVaule: '',
+        name:'DEPLOYMENT_ENV',
+        trim: true,
+        description: 'DEPLOYMENT_ENV is origin remote'),
+    string (
+        defaultVaule: '',
+        name:'BRANCH_NAME',
+        trim: true,
+        description: 'BRANCH_NAME git clone'),
+    )
+  ])
+])
 pipeline {
     agent any
 
