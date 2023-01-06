@@ -27,8 +27,8 @@ pipeline {
     stages {
         stage('Build - Deploy') {
             steps {
-                echo 'Branch deployment is : ' + git_branch
-                echo 'Checkout Branch'
+                sh 'ansible-playbook -i inventory/hosts appspec.yml -vvv' 
+                
             }
          
                 
