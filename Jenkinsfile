@@ -24,12 +24,12 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'DEPLOYMENT_ENV', defaultValue: '', description: 'Who should I say hello to?')
+    string(name: 'BRANCH_NAME', defaultValue: '', description: 'Who should I say hello to?')
   }
   stages {
     stage('Example') {
       steps {
-        sh "echo Hello ${params.DEPLOYMENT_ENV}"
+        sh "echo Hello ${params.BRANCH_NAME}"
       }
     }
   }
