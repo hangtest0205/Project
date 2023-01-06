@@ -29,7 +29,7 @@ pipeline {
   stages {
     stage('Example') {
       steps {
-        sh "ansible-playbook -i inventory/hosts appspec.yml --extra-vars ${params.BRANCH_NAME}"
+        sh "echo ${params.BRANCH_NAME}"
       }
     }
   }
