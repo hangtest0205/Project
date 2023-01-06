@@ -27,7 +27,7 @@ pipeline {
     stages {
         stage('Build - Deploy') {
             steps {
-              sh 'ansible-playbook -i inventory/hosts appspec.yml --extra-vars=${params.DEPLOYMENT_ENV} ${params.BRANCH_NAME}' 
+              sh 'echo ${params.DEPLOYMENT_ENV}' 
                 
             }
          
