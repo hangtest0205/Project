@@ -10,7 +10,6 @@ properties([
         name:'BRANCH_NAME',
         trim: true,
         description: 'BRANCH_NAME git clone'),
-    )
   ])
 ])
 pipeline {
