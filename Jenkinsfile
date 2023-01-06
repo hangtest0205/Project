@@ -1,40 +1,21 @@
-properties([
-  parameters([
-    string(
-        defaultVaule: '',
-        name:'DEPLOYMENT_ENV',
-        trim: true,
-        description: 'DEPLOYMENT_ENV is origin remote'),
-    string (
-        defaultVaule: '',
-        name:'BRANCH_NAME',
-        trim: true,
-        description: 'BRANCH_NAME git clone'),
-  ])
-])
-
-//  properties([
-//    parameters([
-    
-//      text(description:'DEPLOYMENT_ENV', name: 'BRANCH_NAME' ),
-//    ])
-//  ])
-
    
 pipeline {
     agent any
+  parameters{
+    string(name: 'DEPLOYMENT_ENV', defaultValue: '', description: 'DEPLOYMENT_ENV is origin remote'),
+    string(name: 'BRANCH_NAME', defaultValue: '', description: 'BRANCH_NAME git clone'),
+  }
 
-    stages {
-        stage('Build - Deploy') {
-            steps {
-              sh 'echo ${params.DEPLOYMENT_ENV}' 
+
+  stages {
+    stage('Build - Deploy') {
+      steps {
+        sh 'echo Deploy ${params.DEPLOYMENT_ENV}' 
                 
-            }
+      }
          
                 
 
-        }
     }
-
-
+  }
 }
