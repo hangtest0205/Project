@@ -15,7 +15,8 @@
 
  properties([
    parameters([
-     text(DEPLOYMENT_ENV:'DEPLOYMENT_ENV', BRANCH_NAME: 'BRANCH_NAME' ),
+    
+     text(description:'DEPLOYMENT_ENV', name: 'BRANCH_NAME' ),
    ])
  ])
 
