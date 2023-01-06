@@ -1,20 +1,36 @@
-git_branch = env.BRANCH_NAME
+properties([
+  parameters([
+    string(
+        defaultVaule: '',
+        name:'DEPLOYMENT_ENV',
+        trim: true,
+        description: 'DEPLOYMENT_ENV is origin remote'),
+    string (
+        defaultVaule: '',
+        name:'BRANCH_NAME',
+        trim: true,
+        description: 'BRANCH_NAME git clone'),
+  ])
+])
+
+//  properties([
+//    parameters([
+    
+//      text(description:'DEPLOYMENT_ENV', name: 'BRANCH_NAME' ),
+//    ])
+//  ])
+
+   
 pipeline {
     agent any
 
     stages {
         stage('Build - Deploy') {
             steps {
-                echo 'Branch deployment is : ' + git_branch
-                echo 'Checkout Branch'
-                if (git_branch = "origin/master") {
-                   sh 'ansible-playbook -i inventory/hosts appspec.yml -vvv'
-
-                } else {
-                    sh 'ansible-playbook -i inventory/hosts appspec-01.yml -vvv'
-                }
-                 
+                sh 'ansible-playbook -i inventory/hosts appspec.yml -vvv' 
+                
             }
+         
                 
 
         }
