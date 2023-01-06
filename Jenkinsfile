@@ -3,7 +3,7 @@ pipeline {
     agent any
   parameters{
     string(name: 'DEPLOYMENT_ENV', defaultValue: '', description: 'DEPLOYMENT_ENV is origin remote')
-    string(name: 'BRANCH_NAME', defaultValue: '', description: 'BRANCH_NAME git clone'),
+    string(name: 'BRANCH_NAME', defaultValue: '', description: 'BRANCH_NAME git clone')
   }
 
 
