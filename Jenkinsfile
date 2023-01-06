@@ -1,17 +1,17 @@
-properties([
-  parameters([
-    string(
-        defaultVaule: '',
-        name:'DEPLOYMENT_ENV',
-        trim: true,
-        description: 'DEPLOYMENT_ENV is origin remote'),
-    string (
-        defaultVaule: '',
-        name:'BRANCH_NAME',
-        trim: true,
-        description: 'BRANCH_NAME git clone'),
-  ])
-])
+// properties([
+//   parameters([
+//     string(
+//         defaultVaule: '',
+//         name:'DEPLOYMENT_ENV',
+//         trim: true,
+//         description: 'DEPLOYMENT_ENV is origin remote'),
+//     string (
+//         defaultVaule: '',
+//         name:'BRANCH_NAME',
+//         trim: true,
+//         description: 'BRANCH_NAME git clone'),
+//   ])
+// ])
 
 //  properties([
 //    parameters([
