@@ -3,7 +3,8 @@
   gather_facts: yes
   remote_user: ubuntu
   vars:
-    BRANCH_NAME: "origin/master"
+    DEPLOYMENT_ENV: "origin/master"
+    BRANCH_NAME: "master"
   tasks:
       - name: Build-Deploy
         shell: |
