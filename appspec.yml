@@ -9,7 +9,7 @@
   tasks:
       - name: Build-Deploy
         shell: |
-            "{{DESTINATION_PATH}}""{{BRANCH_NAME}} "
+            "{{DESTINATION_PATH}} ""{{BRANCH_NAME}} "
     
         register: command_output
       - debug: var=command_output.stdout_lines
