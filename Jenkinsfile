@@ -19,7 +19,7 @@
 //     }
 //   }
 // }
-
+def BRANCH_NAME
 
 pipeline {
   agent any
