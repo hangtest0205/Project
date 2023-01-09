@@ -31,8 +31,7 @@ pipeline {
   stages {
     stage('Example') {
       steps {
-//         sh "${params.BRANCH_NAME}"
-        sh "${params.DEPLOYMENT_ENV}",
+        sh "${params.DEPLOYMENT_ENV}"
         sh "${params.BRANCH_NAME}"
       }
     }
