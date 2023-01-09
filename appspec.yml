@@ -1,15 +1,13 @@
 - name: Build and Deploy On ENV STG
   hosts: ubuntu
-  become: true 
   gather_facts: yes
   remote_user: ubuntu
   vars:
     BRANCH_NAME: "master"
-    DESTINATION_PATH: "/home/ubuntu/deploy/deploy.sh"
   tasks:
       - name: Build-Deploy
         shell: |
-            "{{DESTINATION_PATH}} "
+            "/home/ubuntu/deploy/deploy.sh"
     
         register: command_output
       - debug: var=command_output.stdout_lines
