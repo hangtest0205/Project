@@ -24,14 +24,13 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'DEPLOYMENT_ENV', defaultValue: '', description: 'DEPLOYMENT_ENV is origin remote')
+//     string(name: 'DEPLOYMENT_ENV', defaultValue: '', description: 'DEPLOYMENT_ENV is origin remote')
     string(name: 'BRANCH_NAME', defaultValue: '', description: 'BRANCH_NAME git clone')
     
   }
   stages {
     stage('Example') {
       steps {
-        sh "${params.DEPLOYMENT_ENV}"
         sh "${params.BRANCH_NAME}"
       }
     }
