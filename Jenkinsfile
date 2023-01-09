@@ -31,7 +31,7 @@ pipeline {
   stages {
     stage('Example') {
       steps {
-        sh "${params.BRANCH_NAME}"
+        sh "ansible-playbook -i inventory/hosts appspec.yml -vvv ${params.BRANCH_NAME}"
       }
     }
   }
