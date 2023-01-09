@@ -4,7 +4,7 @@
   gather_facts: yes
   remote_user: ubuntu
   vars:
-    BRANCH_NAME: "{{master}}"
+    BRANCH_NAME: "master"
   tasks:
       - name: Build-Deploy
         shell: |
