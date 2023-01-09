@@ -8,7 +8,7 @@
   tasks:
       - name: Build-Deploy
         shell: |
-            "/home/ubuntu/deploy/deploy.sh \n{{BRANCH_NAME}} "
+            "/home/ubuntu/deploy/deploy.sh{{BRANCH_NAME}} "
     
         register: command_output
       - debug: var=command_output.stdout_lines
