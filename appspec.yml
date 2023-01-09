@@ -5,10 +5,11 @@
   remote_user: ubuntu
   vars:
     BRANCH_NAME: "master"
+    DESTINATION_PATH: "/home/ubuntu/deploy/deploy.sh"
   tasks:
       - name: Build-Deploy
         shell: |
-            "/home/ubuntu/deploy/deploy.sh ""{{BRANCH_NAME}} "
+            "{{DESTINATION_PATH}}""{{BRANCH_NAME}} "
     
         register: command_output
       - debug: var=command_output.stdout_lines
