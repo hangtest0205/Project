@@ -4,7 +4,7 @@
   remote_user: ubuntu
   vars:
     DEPLOYMENT_ENV: "origin/master"
-    BRANCH_NAME: "master"
+#     BRANCH_NAME: "master"
   tasks:
       - name: Build-Deploy
         shell: |
