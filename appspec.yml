@@ -1,14 +1,16 @@
 - name: Build and Deploy On ENV STG
   hosts: ubuntu
   gather_facts: yes
+  args:
+    executable: /bin/bash
   remote_user: ubuntu
-#   vars:
-#     DEPLOYMENT_ENV: "origin/master"
-#     BRANCH_NAME: "master"
+  vars:
+    DEPLOYMENT_ENV: "origin/master"
+    BRANCH_NAME: "master"
   tasks:
       - name: Build-Deploy
         shell: |
-            "/home/ubuntu/deploy/deploy.sh"
+            "/home/ubuntu/deploy/deploy.sh "
     
         register: command_output
-      - debug: var=command_output.stdout_lines
+      - debug: var=DEPLOYMENT_ENV
