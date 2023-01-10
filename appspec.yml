@@ -6,6 +6,6 @@
   tasks:
       - name: Build-Deploy
         shell: |
-            /home/ubuntu/deploy/deploy.sh
+            /home/ubuntu/deploy/deploy.sh origin/master
      
 
