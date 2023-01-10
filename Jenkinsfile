@@ -31,7 +31,7 @@ pipeline {
   stages {
     stage('Example') {
       steps {
-        sh "ansible-playbook -i inventory/hosts appspec.yml --extra-vars "${params.DEPLOYMENT_ENV} ${params.BRANCH_NAME}"
+        sh "ansible-playbook -i inventory/hosts appspec.yml --extra-vars "${params.DEPLOYMENT_ENV} ${params.BRANCH_NAME}""
       }
     }
   }
