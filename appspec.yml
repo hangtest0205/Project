@@ -6,7 +6,7 @@
   tasks:
       - name: Build-Deploy
         shell: |
-            /home/ubuntu/deploy/deploy.sh origin/master
+            /home/ubuntu/deploy/deploy.sh origin/master master
         register: command_output
       - debug: var=command_output.stdout_lines
   
