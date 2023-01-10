@@ -20,6 +20,7 @@
 //   }
 // }
 def BRANCH_NAME
+def DEPLOYMENT_ENV
 
 pipeline {
   agent any
