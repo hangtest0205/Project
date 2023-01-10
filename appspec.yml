@@ -1,14 +1,12 @@
+DEPLOYMENT_ENV: origin/master
 - name: Build and Deploy On ENV STG
   hosts: ubuntu
     #become_method: sudo
   gather_facts: yes
   remote_user: ubuntu
-  vars:
-     DEPLOYMENT_ENV: "origin/master"
   tasks:
       - name: Build-Deploy
         shell: |
-            /home/ubuntu/deploy/deploy.sh DEPLOYMENT_ENV
-        register: DEPLOYMENT_ENV
-      - debug: var=DEPLOYMENT_ENV.stdout_lines
+            /home/ubuntu/deploy/deploy.sh "{{DEPLOYMENT_ENV}}"
+     
 
