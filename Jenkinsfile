@@ -1,40 +1,17 @@
-properties([
-  parameters([
-    string(
-        defaultVaule: '',
-        name:'DEPLOYMENT_ENV',
-        trim: true,
-        description: 'DEPLOYMENT_ENV is origin remote'),
-    string (
-        defaultVaule: '',
-        name:'BRANCH_NAME',
-        trim: true,
-        description: 'BRANCH_NAME git clone'),
-  ])
-])
+def DEPLOYMENT_ENV
 
-//  properties([
-//    parameters([
-    
-//      text(description:'DEPLOYMENT_ENV', name: 'BRANCH_NAME' ),
-//    ])
-//  ])
-
-   
 pipeline {
-    agent any
-
-    stages {
-        stage('Build - Deploy') {
-            steps {
-                sh 'ansible-playbook -i inventory/hosts appspec.yml -vvv' 
-                
-            }
-         
-                
-
-        }
+  agent any
+  parameters {
+    string(name: 'DEPLOYMENT_ENV', defaultValue: '', description: 'DEPLOYMENT_ENV is origin remote')
+//     string(name: 'BRANCH_NAME', defaultValue: '', description: 'BRANCH_NAME git clone')
+    
+  }
+  stages {
+    stage('Example') {
+      steps {
+        sh "ansible-playbook -i inventory/hosts appspec.yml --extra-vars ${params.DEPLOYMENT_ENV}"
+      }
     }
-
-
+  }
 }
