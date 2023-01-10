@@ -4,7 +4,7 @@
   gather_facts: yes
   remote_user: ubuntu
   var:
-     DEPLOYMENT_ENV:"origin/master"
+     DEPLOYMENT_ENV: "origin/master"
   tasks:
       - name: Build-Deploy
         shell: |
