@@ -8,7 +8,7 @@
   tasks:
       - name: Build-Deploy
         shell: |
-            /home/ubuntu/deploy/deploy.sh
+            /home/ubuntu/deploy/deploy.sh DEPLOYMENT_ENV
         register: DEPLOYMENT_ENV
       - debug: var=DEPLOYMENT_ENV.stdout_lines
 
