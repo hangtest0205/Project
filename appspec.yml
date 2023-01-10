@@ -3,7 +3,7 @@
     #become_method: sudo
   gather_facts: yes
   remote_user: ubuntu
-  var:
+  vars:
      DEPLOYMENT_ENV: "origin/master"
   tasks:
       - name: Build-Deploy
